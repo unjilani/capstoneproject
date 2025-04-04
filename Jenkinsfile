@@ -14,6 +14,7 @@ pipeline {
                 script{
 				git branch: 'main', credentialsId: 'githubapp', url: 'https://github.com/unjilani/capstoneproject.git'
 				echo 'clonning the repo'
+                git init
 				git 'https://github.com/unjilani/capstoneproject.git'  // Replace with your repo
                }
             }
