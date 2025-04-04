@@ -13,7 +13,7 @@ pipeline {
             steps {
                 script{
                 echo 'Building the Criticial Project in progress .............'
-				git clone 'https://github.com/unjilani/capstoneproject.git'  // Replace with your repo
+				git clone https://github.com/unjilani/capstoneproject.git  // Replace with your repo
                }
             }
         }
