@@ -25,15 +25,6 @@ pipeline {
             }
         }
 
-        stage('Save & Transfer Image') {
-            steps {
-                sh '''
-                    docker save -o ${IMAGE_NAME}.tar ${IMAGE_NAME}:${TAG}
-                    sshpass -p '34341983Umer!' scp ${IMAGE_NAME}.tar ${REMOTE_SERVER}:/tmp/
-                '''
-            }
-        }
-
         stage('Deploy to Server') {
             steps {
                 sshagent(credentials: ['ec2-user']) {
