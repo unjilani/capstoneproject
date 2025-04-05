@@ -5,7 +5,7 @@ pipeline {
         IMAGE_NAME = "nginx"
         TAG = "latest"
         REMOTE_SERVER = "ec2-user@3.135.220.61"
-        PORT = "8080"
+        PORT = "80"
     }
 
     stages {
@@ -28,7 +28,7 @@ pipeline {
         stage('Deploy to Server') {
             steps {
                     sh """
-                    docker run -d --name ${IMAGE_NAME} -p ${PORT}:80 ${IMAGE_NAME}:${TAG}
+                    docker run -d --name ${IMAGE_NAME} -p ${PORT}:${PORT} ${IMAGE_NAME}:${TAG}
                     """
                 }
             }
