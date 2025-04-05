@@ -4,7 +4,7 @@ pipeline {
     environment {
         IMAGE_NAME = "nginx"
         TAG = "latest"
-        REMOTE_SERVER = "ec2-user@3.148.145.120"
+        REMOTE_SERVER = "ec2-user@3.15.142.140"
         PORT = "8080"
     }
 
