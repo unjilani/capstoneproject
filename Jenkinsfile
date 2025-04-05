@@ -28,7 +28,7 @@ pipeline {
         stage('Deploy to Server') {
             steps {
                     sh """
-                    docker run -d --name ${IMAGE_NAME} -p ${PORT}:${PORT} ${IMAGE_NAME}:${TAG}
+                    docker run -d --name ${IMAGE_NAME} -p ${PORT}:80 ${IMAGE_NAME}:${TAG}
                     """
                 }
             }
