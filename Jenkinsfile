@@ -36,18 +36,11 @@ pipeline {
 
         stage('Deploy to Server') {
             steps {
-                sshagent(credentials: ['ec2-user']) {
                     sh """
-                        ssh $REMOTE_SERVER '
-                            docker load -i /tmp/${IMAGE_NAME}.tar &&
-                            docker stop ${IMAGE_NAME} || true &&
-                            docker rm ${IMAGE_NAME} || true &&
-                            docker run -d --name ${IMAGE_NAME} -p ${PORT}:${PORT} ${IMAGE_NAME}:${TAG}
-                        '
+                    docker run -d --name ${IMAGE_NAME} -p ${PORT}:${PORT} ${IMAGE_NAME}:${TAG}
                     """
                 }
             }
-        }
     }
 
     post {
