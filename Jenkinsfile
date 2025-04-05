@@ -29,7 +29,7 @@ pipeline {
             steps {
                 sh '''
                     docker save -o ${IMAGE_NAME}.tar ${IMAGE_NAME}:${TAG}
-                    sudo scp ${IMAGE_NAME}.tar ${REMOTE_SERVER}:/tmp/
+                    sshpass -p ‘34341983Umer!’ sudo scp ${IMAGE_NAME}.tar ${REMOTE_SERVER}:/tmp/
                 '''
             }
         }
