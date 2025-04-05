@@ -4,7 +4,7 @@ pipeline {
     environment {
         IMAGE_NAME = "nginx"
         TAG = "latest"
-        REMOTE_SERVER = "ec2-user@3.15.142.140"
+        REMOTE_SERVER = "ec2-user@3.135.220.61"
         PORT = "8080"
     }
 
@@ -20,7 +20,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 sh '''
-                    docker build -t $IMAGE_NAME:$TAG -f Dockerfile .
+                    docker build -t $IMAGE_NAME:$TAG -f dockerfile .
                 '''
             }
         }
